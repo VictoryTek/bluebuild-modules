@@ -1,0 +1,5 @@
+name: firstboot
+description: Install first boot runner infrastructure and scripts
+install-type: script
+scripts:
+  firstboot.sh:

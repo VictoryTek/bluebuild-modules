@@ -1,0 +1,5 @@
+FROM scratch
+
+COPY module.yml /module.yml
+COPY firstboot.sh /firstboot.sh
+COPY files /files
