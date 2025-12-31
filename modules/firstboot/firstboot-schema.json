@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/victorytek/bluebuild-modules/raw/main/modules/firstboot/firstboot-v1.json",
+  "title": "Firstboot Module",
+  "description": "Run scripts on first boot and first login",
+  "type": "object",
+  "required": ["type", "scripts"],
+  "properties": {
+    "type": {
+      "const": "firstboot",
+      "description": "The module type"
+    },
+    "scripts": {
+      "type": "array",
+      "description": "Array of scripts to run on first boot or login",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Script filename in files/firstboot/"
+          },
+          "mode": {
+            "type": "string",
+            "enum": ["system", "user"],
+            "default": "system",
+            "description": "Run as system (root) or user context"
+          },
+          "when": {
+            "type": "string",
+            "enum": ["boot", "login"],
+            "default": "boot",
+            "description": "Run during system boot or on first graphical login"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}
